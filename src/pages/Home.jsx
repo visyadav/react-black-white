@@ -4,7 +4,7 @@ import Herosection from '../components/Herosection'
 function Home() {
     return (
         <>
-            <div className='w-full h-full bg-zinc-100'>
+            <div className='w-screen h-full bg-zinc-100'>
                 <Navbar />
                 <div className='px-[5rem]'>
                     <Herosection rtCount="7.90" />
