@@ -51,7 +51,7 @@ function Portfolios() {
                         <img
                             src={project.image}
                             alt={project.title}
-                            className="w-full h-full object-cover rounded-2xl"
+                            className="w-full h-full object-cover rounded-2xl "
                         />
                     </div>
                 ))}

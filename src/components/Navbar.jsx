@@ -3,10 +3,17 @@ import Marquee from './Marquee';
 import { SlArrowDown } from "react-icons/sl";
 import { HiMagnifyingGlass } from "react-icons/hi2";
 import NotificationCount from './NotificationCount';
+import { LuCrown } from "react-icons/lu";
 
 function Navbar() {
     const [count, setCount] = useState(5);
     const [isOpen, setIsOpen] = useState(false);
+    const [isExploreOpen, setIsExploreOpen] = useState(false);
+    const [hoveredOption, setHoveredOption] = useState(""); // Define hoveredOption state
+
+    const toggleExploreDropdown = () => {
+        setIsExploreOpen(!isExploreOpen);
+    };
 
     return (
         <>
@@ -29,11 +36,72 @@ function Navbar() {
 
                 {/* Navigation Links */}
                 <div
-                    className={`${
-                        isOpen ? 'flex' : 'hidden'
-                    } flex-col md:flex md:flex-row md:items-center gap-5 mt-3 md:mt-0`}
+                    className={`${isOpen ? 'flex' : 'hidden'
+                        } flex-col md:flex md:flex-row md:items-center gap-5 mt-3 md:mt-0`}
                 >
-                    <a href="/" className='flex items-center gap-1'>Explore <SlArrowDown className='w-2 h-2' /></a>
+                    <div className="relative">
+                        <a
+                            href="/"
+                            className='flex items-center gap-1 cursor-pointer'
+                            onClick={(e) => {
+                                e.preventDefault();
+                                toggleExploreDropdown();
+                            }}
+                        >
+                            Explore <SlArrowDown className='w-2 h-2' />
+                        </a>
+                        {isExploreOpen && (
+                            <div
+                                className="absolute mt-2 bg-white shadow-lg rounded-md border z-10 w-[200px]" // Adjust the width here
+                            >
+                                <ul className="py-2">
+                                    <li
+                                        className="px-4 py-2 flex items-center gap-2 hover:bg-gray-100 cursor-pointer"
+                                        onMouseEnter={() => setHoveredOption("Category 1")}
+                                        onMouseLeave={() => setHoveredOption("")}
+                                    >
+                                        <input
+                                            type="radio"
+                                            name="exploreOption"
+                                            checked={hoveredOption === "Category 1"}
+                                            readOnly
+                                            className="cursor-pointer accent-zinc-900"
+                                        />
+                                        <a href="/category1" className="flex-1">Category 1</a>
+                                    </li>
+                                    <li
+                                        className="px-4 py-2 flex items-center gap-2 hover:bg-gray-100 cursor-pointer"
+                                        onMouseEnter={() => setHoveredOption("Category 2")}
+                                        onMouseLeave={() => setHoveredOption("")}
+                                    >
+                                        <input
+                                            type="radio"
+                                            name="exploreOption"
+                                            checked={hoveredOption === "Category 2"}
+                                            readOnly
+                                            className="cursor-pointer accent-zinc-900"
+                                        />
+                                        <a href="/category2" className="flex-1">Category 2</a>
+                                    </li>
+                                    <li
+                                        className="px-4 py-2 flex items-center gap-2 hover:bg-gray-100 cursor-pointer"
+                                        onMouseEnter={() => setHoveredOption("Category 3")}
+                                        onMouseLeave={() => setHoveredOption("")}
+                                    >
+                                        <input
+                                            type="radio"
+                                            name="exploreOption"
+                                            checked={hoveredOption === "Category 3"}
+                                            readOnly
+                                            className="cursor-pointer accent-zinc-900"
+                                        />
+                                        <a href="/category3" className="flex-1">Category 3</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        )}
+
+                    </div>
                     <a href="/">Directory</a>
                     <a href="/">Academy</a>
                     <a href="/" className='flex items-center gap-1'>Conferences <NotificationCount number={count} /></a>
@@ -60,7 +128,7 @@ function Navbar() {
 
                 {/* Buttons */}
                 <div className='flex flex-col md:flex-row gap-2 mt-3 md:mt-0'>
-                    <button className='bg-zinc-900 text-white px-5 py-2 rounded-lg'>Be Pro</button>
+                    <button className='bg-zinc-900 text-white px-5 py-2 rounded-lg flex gap-1'><LuCrown className='mt-1' />Be Pro</button>
                     <button className='text-black border border-zinc-900 px-6 py-2 rounded-lg'>Subscribe</button>
                 </div>
             </nav>
