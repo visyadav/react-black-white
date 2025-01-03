@@ -20,20 +20,38 @@ function Portfolios() {
             description: 'This is the third project description.',
             image: 'https://via.placeholder.com/150',
         },
+        {
+            id: 3,
+            title: 'Project 3',
+            description: 'This is the third project description.',
+            image: 'https://via.placeholder.com/150',
+        },
+        {
+            id: 3,
+            title: 'Project 3',
+            description: 'This is the third project description.',
+            image: 'https://via.placeholder.com/150',
+        },
+        {
+            id: 3,
+            title: 'Project 3',
+            description: 'This is the third project description.',
+            image: 'https://via.placeholder.com/150',
+        },
     ];
 
     return (
-        <div className="mt-16">
+        <div className="mt-16 px-4 md:px-8 lg:px-12">
             <div className="w-full flex flex-col gap-8">
                 {projects.map((project) => (
                     <div
                         key={project.id}
-                        className="bg-zinc-900 w-full h-auto md:h-[60vh] lg:h-[70vh] rounded-2xl relative"
+                        className="bg-zinc-900 w-full h-auto md:h-[60vh] lg:h-[70vh] rounded-3xl relative border-x-[20px] border-y-[20px] border-black"
                     >
                         <img
                             src={project.image}
                             alt={project.title}
-                            className="w-full h-full object-cover rounded-[2rem] p-4 md:p-6 lg:p-10"
+                            className="w-full h-full object-cover rounded-2xl"
                         />
                     </div>
                 ))}

@@ -1,15 +1,16 @@
 import React from 'react'
 import Navbar from '../components/Navbar'
 import Herosection from '../components/Herosection'
+import Footer from '../components/Footer'
 function Home() {
     return (
         <>
-            <div className='w-screen h-full bg-zinc-100'>
-                <Navbar />
-                <div className='px-[5rem]'>
-                    <Herosection rtCount="7.90" />
-                </div>
+            <Navbar />
+            <div className='px-[5rem]'>
+                <Herosection rtCount="7.90" />
+                <Footer />
             </div>
+
         </>
     )
 }

@@ -6,7 +6,9 @@ function App() {
 
   return (
     <>
-      <Home />
+      <div className='overflow-auto scrollbar-hidden'>
+        <Home />
+      </div>
     </>
   )
 }
